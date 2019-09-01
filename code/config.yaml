@@ -1,0 +1,39 @@
+---
+# PROBLEM SETUP
+
+worker_station_problem:
+  Number_of_Workers:4
+  Number_of_Stations:4
+  Number_of_Timesteps:3
+  Demands:[12,12,5]
+
+Worker_1_info:
+  Worker_id:
+  Learning_rate:
+  Forgetting_rate:
+  Initial_skill:
+  Initial_station:
+
+Worker_2_info:
+  Worker_id:
+  Learning_rate:
+  Forgetting_rate:
+  Initial_skill:
+  Initial_station:
+
+Worker_3_info:
+  Worker_id:
+  Learning_rate:
+  Forgetting_rate:
+  Initial_skill:
+  Initial_station:
+
+Worker_4_info:
+  Worker_id:
+  Learning_rate:
+  Forgetting_rate:
+  Initial_skill:
+  Initial_station:
+
+
+
