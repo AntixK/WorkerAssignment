@@ -2,38 +2,55 @@
 # PROBLEM SETUP
 
 worker_station_problem:
-  Number_of_Workers:4
-  Number_of_Stations:4
-  Number_of_Timesteps:3
-  Demands:[12,12,5]
+  Number_of_Workers: 3
+  Number_of_Stations: 3
+  Number_of_Timesteps: 4
+  Demands: [12,7,5, 20]
+
+# ADD WORKER INFORMATION HERE
 
 Worker_1_info:
-  Worker_id:
-  Learning_rate:
-  Forgetting_rate:
-  Initial_skill:
-  Initial_station:
+  Worker_id: 1
+  Learning_rate: 0.710
+  Forgetting_rate: 0.940
+  Initial_skill: [10,11,7]
+  Initial_station: 1
 
 Worker_2_info:
-  Worker_id:
-  Learning_rate:
-  Forgetting_rate:
-  Initial_skill:
-  Initial_station:
+  Worker_id: 2
+  Learning_rate: 0.725
+  Forgetting_rate: 0.925
+  Initial_skill: [10,6,8]
+  Initial_station: 2
 
 Worker_3_info:
-  Worker_id:
-  Learning_rate:
-  Forgetting_rate:
-  Initial_skill:
-  Initial_station:
-
-Worker_4_info:
-  Worker_id:
-  Learning_rate:
-  Forgetting_rate:
-  Initial_skill:
-  Initial_station:
+  Worker_id: 2
+  Learning_rate: 0.740
+  Forgetting_rate: 0.910
+  Initial_skill: [7,8,12]
+  Initial_station: 3
 
 
+# ADD STATION INFORMATION HERE
+Station_1_info:
+  Station_id: 1
+  Max_skill_level: 30
+  Min_skill_level: 0
+  Delta: 1
+  Epsilon: 3
 
+Station_2_info:
+  Station_id: 2
+  Max_skill_level: 30
+  Min_skill_level: 0
+  Delta: 1
+  Epsilon: 3
+
+Station_3_info:
+  Station_id: 3
+  Max_skill_level: 34.39
+  Min_skill_level: 0
+  Delta: 2
+  Epsilon: 3
+
+# END OF FILE

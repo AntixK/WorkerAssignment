@@ -2,7 +2,10 @@ from ortools.graph import pywrapgraph
 from typing import List
 import numpy as np
 import yaml
-
+import logging
+import os
+from time import time
+from datetime import datetime
 
 class Worker:
     """
@@ -90,7 +93,11 @@ class WorkerStationProblem:
         self.worker_id = list(range(1, self.num_workers + 1))
         self.station_id = list(range(self.num_workers + 1, self.num_stations + self.num_stations + 1))
         self.sink_id = self.num_stations + self.num_workers + 1
-        self.inventory = []
+        self.WIP_inventory = [0]*self.num_stations
+
+        self.mean_units = 0
+        self.actual_units = [0] * self.num_stations
+
         self.Q = []
 
         # List to store the Worker and Station class objects
@@ -100,8 +107,13 @@ class WorkerStationProblem:
         # Handle for the MinCostFlow solver
         self.solver = pywrapgraph.SimpleMinCostFlow()
 
+        if os.path.exists('Experiment.log'):
+            os.remove('Experiment.log')
+        logging.basicConfig(filename='Experiment.log', level=logging.INFO, format='%(message)s')
+        logging.info("Experiment Date: {} \n".format(datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
 
-    def _build_graph(self):
+
+    def _build_graph(self, cost_fn):
         """
         Function to convert the Worker-Station assignment problem
         into a Min-cost flow problem. Based on the above given data,
@@ -150,7 +162,7 @@ class WorkerStationProblem:
         # Compute the Worker - Station costs
         for worker_id in range(self.num_workers):
             for station_id in range(self.num_stations):
-                cost = self._compute_cost(worker_id, station_id)
+                cost = cost_fn(worker_id, station_id)
                 self.costs.append(cost)
 
         self.costs += [0]*self.num_stations
@@ -165,16 +177,6 @@ class WorkerStationProblem:
         self.supplies = [self.num_workers]
         self.supplies += [0]*(self.num_workers+self.num_stations)
         self.supplies += [-self.num_stations]
-        print("=================== Solving for Time Step %d ==========================="%(self.current_time_step+1))
-        print("Worker IDs :", self.worker_id)
-        print("Station IDs :", self.station_id)
-        print("Start Nodes:", self.start_nodes)
-        print("End Nodes:", self.end_nodes)
-        print("Capacities:", self.capacities)
-        print("Costs:", self.costs)
-        print("Supplies:", self.supplies)
-        print("------------------------------------------------------------------------")
-
 
         # Add each link(arc) to the solver graph
         for i in range(len(self.start_nodes)):
@@ -184,6 +186,74 @@ class WorkerStationProblem:
         # Add node supplies to the solver graph
         for i in range(len(self.supplies)):
             self.solver.SetNodeSupply(i, self.supplies[i])
+
+    def run_optimizer(self):
+        """
+        Given a graph, this function runs the Mincostflow algorithm
+        :return:
+        """
+
+        # Find the minimum cost flow between node 0 and node 10.
+        if self.solver.Solve() == self.solver.OPTIMAL:
+            logging.info('Total Minimum cost = {}'.format(self.solver.OptimalCost()))
+            for arc in range(self.solver.NumArcs()):
+
+                # Can ignore arcs leading out of source or into sink.
+                if self.solver.Tail(arc) != self.source_id and self.solver.Head(arc) != self.sink_id:
+
+                    # Arcs in the solution have a flow value of 1. Their start and end nodes
+                    # give an assignment of worker to task.
+
+                    if self.solver.Flow(arc) > 0:
+                        worker_id = self.solver.Tail(arc)
+                        station_id = self.solver.Head(arc) - self.num_workers
+
+                        self.theoretical_units_produced[station_id - 1] = \
+                            self.workers[worker_id - 1].rem_skill[station_id - 1]
+                        units_produced = self.workers[worker_id - 1].rem_skill[station_id - 1]
+
+                        self.workers[worker_id - 1].assign_history.append(station_id - 1)
+
+                        logging.info('Worker {:d} assigned to Station {:d}, capable of {:d} units; Deficit = {:d}'.format(
+                            worker_id,
+                            station_id,
+                            units_produced,
+                            self.solver.UnitCost(arc)))
+
+        elif self.solver.Solve() == self.solver.INFEASIBLE:
+            raise RuntimeError("Infeasible problem input. Terminating code.")
+        else:
+            raise RuntimeError("Bad Result! Terminating code.")
+
+    def _compute_units_produced(self, compute_WIP):
+        # Compute the actual units produced & Inventory
+        """
+        This calculation is simple - the current station cannot produce
+        more than its previous station (assuming empty inventory)
+        """
+        self.actual_units = [0] * self.num_stations
+        for i in range(self.num_stations):
+
+            self.actual_units[i] = self.theoretical_units_produced[i]
+
+            if i > 0:
+
+                """
+                If the current station can produce more than the previous station,
+                then max number of units produced by the current station is equal
+                to its previous station.
+                """
+                if self.actual_units[i] > self.theoretical_units_produced[i - 1]:
+                    self.actual_units[i] = min(self.theoretical_units_produced[i],
+                                               self.actual_units[i - 1] + self.WIP_inventory[i])
+
+                if compute_WIP:
+                    self.WIP_inventory[i] += self.actual_units[i - 1] - self.actual_units[i]
+            logging.info('Station {:d} practically produces {:d} units'.
+                  format(i + 1, self.actual_units[i]))
+
+        if compute_WIP:
+            logging.info("WIP Inventory {}".format(self.WIP_inventory))
 
     def Solve(self):
         """
@@ -203,38 +273,55 @@ class WorkerStationProblem:
 
         self.current_time_step = 0
 
-
         for _ in range(self.num_time_steps):
-            self._build_graph()
-            # Find the minimum cost flow between node 0 and node 10.
-            if self.solver.Solve() == self.solver.OPTIMAL:
-                print('Total Minimum cost = ', self.solver.OptimalCost())
-                for arc in range(self.solver.NumArcs()):
+            start = time()
+            self._build_graph(cost_fn= self._compute_lost_sales_cost)
+            build_time = time() - start
+            logging.info("================== Solving for Time Step {} ==========================" .format(
+                        self.current_time_step + 1))
+            logging.info("Worker IDs : {}".format(self.worker_id))
+            logging.info("Station IDs : {}".format(self.station_id))
+            logging.info("Start Nodes: {}".format(self.start_nodes))
+            logging.info("End Nodes: {}".format(self.end_nodes))
+            logging.info("Capacities: {}".format(self.capacities))
+            logging.info("Costs: {}".format(self.costs))
+            logging.info("Supplies: {}".format(self.supplies))
+            logging.info("------------------- Minimizing Lost Sales ----------------------------")
 
-                    # Can ignore arcs leading out of source or into sink.
-                    if self.solver.Tail(arc) != self.source_id and self.solver.Head(arc) != self.sink_id:
+            self.mean_units = 0
+            # Reset for each iteration
+            self.theoretical_units_produced = [0] * self.num_stations
 
-                        # Arcs in the solution have a flow value of 1. Their start and end nodes
-                        # give an assignment of worker to task.
+            start = time()
 
-                        if self.solver.Flow(arc) > 0:
-                            worker_id = self.solver.Tail(arc)
-                            station_id = self.solver.Head(arc) - self.num_workers
-                            units_produced = self.workers[worker_id-1].rem_skill[station_id-1]
+            self.run_optimizer()
 
-                            self.workers[worker_id-1].assign_history.append(station_id-1)
+            solve_time = time() - start
+            logging.info("---------------------------------------------------------------------")
+            self._compute_units_produced(compute_WIP=False)
 
-                            print('Worker %d assigned to Station %d producing %d units; Deficit = %d' % (
-                                worker_id,
-                                station_id,
-                                units_produced,
-                                self.solver.UnitCost(arc)))
-            elif self.solver.Solve() == self.solver.INFEASIBLE:
-                raise RuntimeError("Infeasible problem input. Terminating code.")
-            else:
-                raise RuntimeError("Bad Result! Terminating code.")
+            del self.solver
+            self.solver = pywrapgraph.SimpleMinCostFlow()
 
-            print("=========================================================================")
+            logging.info("------------------- Minimizing Standard Deviation --------------------")
+
+            start = time()
+            self._build_graph(cost_fn= self._compute_std_cost)
+            build_time += time() - start
+
+            start = time()
+            self.run_optimizer()
+            solve_time += time() - start
+
+            logging.info("---------------------------------------------------------------------")
+
+            self._compute_units_produced(compute_WIP=True)
+            logging.info("---------------------------------------------------------------------")
+            logging.info('Graph building time: {:.5f}s'.format(build_time))
+            logging.info('Solving time: {:.5f}s'.format(solve_time))
+            logging.info('Total time: {:.5f}s'.format(build_time + solve_time))
+            logging.info("======================================================================")
+            logging.info('\n\n')
 
             self.current_time_step += 1
 
@@ -243,7 +330,8 @@ class WorkerStationProblem:
                 for station_id in range(self.num_stations):
                     skill_level = self.update_skills(worker_id, station_id)
                     self.workers[worker_id].rem_skill[station_id] = skill_level
-                print(worker_id+1, self.workers[worker_id].rem_skill)
+                logging.info("worker ID: {} Skill Levels: {}".format(worker_id+1,
+                                                             self.workers[worker_id].rem_skill))
 
             del self.solver
             self.solver = pywrapgraph.SimpleMinCostFlow()
@@ -333,35 +421,94 @@ class WorkerStationProblem:
         S = int(abs(S))
         return max(S, self.stations[station_id].S_LB)
 
-    def _compute_cost(self, worker_id, station_id):
+    def _compute_lost_sales_cost(self, worker_id, station_id):
         S = self.workers[worker_id].rem_skill[station_id]
 
-        return max(0, self.demands[self.current_time_step] - S)
+        # if worker_id > 0:
+        #     th = max([x if x < S else 0 for x in self.workers[worker_id - 1].rem_skill])
+        # else:
+        #     th = 0
 
-    def _compute_lost_sales(self): #Z_1
-        """
-         Assume worker 1 in station 1
-         worker 2 in station 2 and so on
-         :return:
-         """
-        I_f = 0
-        units_processed = []
+        return max(0, self.demands[self.current_time_step] - S) + \
+               max(0, S - self.demands[self.current_time_step])
 
-        for i, w in enumerate(self.workers):
-            I_f += w.initial_skill[i]
-            units_processed.append(w.initial_skill[i])
 
-        self.Q.append(units_processed)
-        self.inventory.append(I_f)
-        return max(0, self.demands[0] - I_f)
+    def _compute_std_cost(self, worker_id, station_id):
+        self.mean_units = sum(self.actual_units)/len(self.actual_units)
+        S = self.workers[worker_id].rem_skill[station_id]
 
-    def _compute_std(self):
-        return np.std(self.Q[0])
+        return int(abs((S - self.mean_units)))
 
-    def _compute_bn(self):
+    # def _compute_lost_sales(self): #Z_1
+    #     """
+    #      Assume worker 1 in station 1
+    #      worker 2 in station 2 and so on
+    #      :return:
+    #      """
+    #     I_f = 0
+    #     units_processed = []
+    #
+    #     for i, w in enumerate(self.workers):
+    #         I_f += w.initial_skill[i]
+    #         units_processed.append(w.initial_skill[i])
+    #
+    #     self.Q.append(units_processed)
+    #     self.WIP_inventory.append(I_f)
+    #     return max(0, self.demands[0] - I_f)
 
-        bn_idx = np.argmin(self.Q[0])
-        return sum([q - self.Q[0][bn_idx] for q in self.Q])
+    #
+    #
+    # def _compute_bn(self):
+    #
+    #     bn_idx = np.argmin(self.Q[0])
+    #     return sum([q - self.Q[0][bn_idx] for q in self.Q])
 
+
+def parse_yaml(config_file):
+    """
+    Function to parse the yaml configuration file
+    and returns a dict.
+    """
+    with open(config_file, 'r') as file:
+        try:
+            cfg = yaml.safe_load(file)
+        except yaml.YAMLError as exc:
+            print(exc)
+        # print(cfg)
+        return cfg
+
+
+def create_experiment(cfg):
+    """
+    Function to create the experiment from the given configuration
+    :param cfg: Configuration as a nested dict (can be from Yaml or a JSON file)
+    :return: None
+    """
+    setup_cfg = cfg['worker_station_problem']
+    w = WorkerStationProblem(num_workers= setup_cfg['Number_of_Workers'],
+                             num_stations= setup_cfg['Number_of_Stations'],
+                             num_time_steps= setup_cfg['Number_of_Timesteps'],
+                             demands= setup_cfg['Demands'])
+
+    for i in range(setup_cfg['Number_of_Workers']):
+        worker_cfg = cfg['Worker_{}_info'.format(i+1)]
+        w.add_worker(lr = worker_cfg['Learning_rate'],
+                     fr = worker_cfg['Forgetting_rate'],
+                     initial_skill= worker_cfg['Initial_skill'],
+                     station_id= worker_cfg['Initial_station'])
+
+    for i in range(setup_cfg['Number_of_Stations']):
+        station_cfg = cfg['Station_{}_info'.format(i+1)]
+        w.add_station(S_max= station_cfg['Max_skill_level'],
+                      S_min= station_cfg['Min_skill_level'],
+                      delta= station_cfg['Delta'],
+                      eps= station_cfg['Epsilon'])
+    w.Solve()
+
+
+if __name__ == '__main__':
+    # w = WorkerStationProblem(num_workers=4, num_stations=4, num_time_steps=3, demands=[12, 12, 5])
+    cfg = parse_yaml('config.yaml')
+    create_experiment(cfg)
 
 
