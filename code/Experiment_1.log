@@ -1,4 +1,4 @@
-Experiment Date: 04/09/2019 20:45:43 
+Experiment Date: 04/09/2019 21:21:17 
 
 ================== Solving for Time Step 1 ==========================
 Worker IDs : [1, 2, 3]
@@ -28,9 +28,9 @@ Station 2 practically produces 10 units
 Station 3 practically produces 10 units
 WIP Inventory [0, 0, 0]
 ---------------------------------------------------------------------
-Graph building time: 0.00013s
-Solving time: 0.00033s
-Total time: 0.00045s
+Graph building time: 0.00010s
+Solving time: 0.00027s
+Total time: 0.00036s
 ======================================================================
 
 
@@ -66,9 +66,9 @@ Station 2 practically produces 6 units
 Station 3 practically produces 6 units
 WIP Inventory [0, 3, 0]
 ---------------------------------------------------------------------
-Graph building time: 0.00007s
-Solving time: 0.00024s
-Total time: 0.00031s
+Graph building time: 0.00006s
+Solving time: 0.00022s
+Total time: 0.00028s
 ======================================================================
 
 
@@ -104,9 +104,9 @@ Station 2 practically produces 4 units
 Station 3 practically produces 4 units
 WIP Inventory [0, 4, 0]
 ---------------------------------------------------------------------
-Graph building time: 0.00009s
-Solving time: 0.00035s
-Total time: 0.00044s
+Graph building time: 0.00006s
+Solving time: 0.00021s
+Total time: 0.00028s
 ======================================================================
 
 
@@ -142,9 +142,9 @@ Station 2 practically produces 14 units
 Station 3 practically produces 13 units
 WIP Inventory [0, 3, 1]
 ---------------------------------------------------------------------
-Graph building time: 0.00008s
-Solving time: 0.00026s
-Total time: 0.00034s
+Graph building time: 0.00006s
+Solving time: 0.00024s
+Total time: 0.00030s
 ======================================================================
 
 
@@ -152,3 +152,5 @@ Total time: 0.00034s
 worker ID: 1 Skill Levels: [13, 20, 14]
 worker ID: 2 Skill Levels: [19, 11, 13]
 worker ID: 3 Skill Levels: [11, 10, 20]
+======================================================================
+Total experiment time: 0.00123s

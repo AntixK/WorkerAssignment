@@ -70,7 +70,7 @@ class WorkerStationProblem:
     def __init__(self, num_workers: int,
                  num_stations: int,
                  num_time_steps: int,
-                 demands: List[int]):
+                 demands: List[int], experiment_name: str):
         """
         Initial setup for the Worker-Station problem
         :param num_workers: Number of workers in the problem
@@ -98,6 +98,8 @@ class WorkerStationProblem:
         self.mean_units = 0
         self.actual_units = [0] * self.num_stations
 
+        self.experiment_time = 0
+
         self.Q = []
 
         # List to store the Worker and Station class objects
@@ -107,9 +109,9 @@ class WorkerStationProblem:
         # Handle for the MinCostFlow solver
         self.solver = pywrapgraph.SimpleMinCostFlow()
 
-        if os.path.exists('Experiment.log'):
-            os.remove('Experiment.log')
-        logging.basicConfig(filename='Experiment.log', level=logging.INFO, format='%(message)s')
+        if os.path.exists(experiment_name+'.log'):
+            os.remove(experiment_name+'.log')
+        logging.basicConfig(filename=experiment_name+'.log', level=logging.INFO, format='%(message)s')
         logging.info("Experiment Date: {} \n".format(datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
 
 
@@ -312,6 +314,7 @@ class WorkerStationProblem:
             start = time()
             self.run_optimizer()
             solve_time += time() - start
+            self.experiment_time += build_time + solve_time
 
             logging.info("---------------------------------------------------------------------")
 
@@ -322,6 +325,8 @@ class WorkerStationProblem:
             logging.info('Total time: {:.5f}s'.format(build_time + solve_time))
             logging.info("======================================================================")
             logging.info('\n\n')
+
+
 
             self.current_time_step += 1
 
@@ -335,6 +340,8 @@ class WorkerStationProblem:
 
             del self.solver
             self.solver = pywrapgraph.SimpleMinCostFlow()
+        logging.info("======================================================================")
+        logging.info('Total experiment time: {:.5f}s'.format(self.experiment_time))
 
     def add_worker(self, lr: float,
                    fr: float,
@@ -488,7 +495,8 @@ def create_experiment(cfg):
     w = WorkerStationProblem(num_workers= setup_cfg['Number_of_Workers'],
                              num_stations= setup_cfg['Number_of_Stations'],
                              num_time_steps= setup_cfg['Number_of_Timesteps'],
-                             demands= setup_cfg['Demands'])
+                             demands= setup_cfg['Demands'],
+                             experiment_name=setup_cfg['Experiment_Name'])
 
     for i in range(setup_cfg['Number_of_Workers']):
         worker_cfg = cfg['Worker_{}_info'.format(i+1)]

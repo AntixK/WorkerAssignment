@@ -6,6 +6,7 @@ worker_station_problem:
   Number_of_Stations: 3
   Number_of_Timesteps: 4
   Demands: [12,7,5, 20]
+  Experiment_Name: 'Experiment_1'
 
 # ADD WORKER INFORMATION HERE
 
