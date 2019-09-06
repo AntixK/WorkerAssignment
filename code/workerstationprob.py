@@ -545,9 +545,9 @@ class WorkerStationProblem:
                    fontsize=15)
         plt.xlabel('Time Steps', fontsize=15)
         plt.ylabel('Inventory Units', fontsize=15)
-        plt.title('Inventory Vs Time', fontsize=15)
+        plt.title('WIP Inventory Vs Time', fontsize=15)
         plt.tight_layout()
-        plt.savefig(self.SAVE_PATH + "Inventory Vs Time.pdf", dpi=300)
+        plt.savefig(self.SAVE_PATH + "WIP Inventory Vs Time.pdf", dpi=300)
 
         if is_show:
             plt.show()
