@@ -1,11 +1,18 @@
-from ortools.graph import pywrapgraph
-from typing import List
-import numpy as np
+import os
 import yaml
 import logging
-import os
+import numpy as np
+import pandas as pd
 from time import time
+from tqdm import trange
+from typing import List
 from datetime import datetime
+import matplotlib.pyplot as plt
+from ortools.graph import pywrapgraph
+
+
+plt.style.use('seaborn')
+
 
 class Worker:
     """
@@ -94,9 +101,11 @@ class WorkerStationProblem:
         self.station_id = list(range(self.num_workers + 1, self.num_stations + self.num_stations + 1))
         self.sink_id = self.num_stations + self.num_workers + 1
         self.WIP_inventory = [0]*self.num_stations
+        self.inventory_log = np.empty((0, 3))
 
         self.mean_units = 0
         self.actual_units = [0] * self.num_stations
+        self.final_num_units = []
 
         self.experiment_time = 0
 
@@ -109,11 +118,19 @@ class WorkerStationProblem:
         # Handle for the MinCostFlow solver
         self.solver = pywrapgraph.SimpleMinCostFlow()
 
-        if os.path.exists(experiment_name+'.log'):
-            os.remove(experiment_name+'.log')
-        logging.basicConfig(filename=experiment_name+'.log', level=logging.INFO, format='%(message)s')
-        logging.info("Experiment Date: {} \n".format(datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
+        self.SAVE_PATH = experiment_name + '/'
+        os.makedirs(self.SAVE_PATH, exist_ok=True)
 
+        if os.path.exists(self.SAVE_PATH + experiment_name+'.log'):
+            os.remove(self.SAVE_PATH + experiment_name+'.log')
+        logging.basicConfig(filename=self.SAVE_PATH + experiment_name+'.log', level=logging.INFO, format='%(message)s')
+        logging.info("Experiment Date: {} \n".format(datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
+        logging.info("Demands: {}".format(self.demands))
+
+        cols = []
+        for i in range(self.num_time_steps):
+            cols.append('Time Step {}'.format(i+1))
+        self.pd_file = pd.DataFrame(columns=cols)
 
     def _build_graph(self, cost_fn):
         """
@@ -144,7 +161,6 @@ class WorkerStationProblem:
                          list(range(self.num_stations+1, 2*self.num_stations+1))*self.num_workers + \
                          [2*self.num_stations+1]*self.num_stations
 
-
         """
         Set the capacities all to one as this is just a simple mapping problem
         and we do not have any cost associated with the mapping itself.
@@ -159,7 +175,7 @@ class WorkerStationProblem:
             - User-defined cost for Worker -> Station
             - Zero costs for links from Worker -> Sink
         """
-        self.costs = [0]*self.num_workers #+ [90, 76, 75, 70, 35, 85, 55, 65, 125, 95, 90, 105, 45, 110, 95, 115]
+        self.costs = [0]*self.num_workers
 
         # Compute the Worker - Station costs
         for worker_id in range(self.num_workers):
@@ -189,10 +205,15 @@ class WorkerStationProblem:
         for i in range(len(self.supplies)):
             self.solver.SetNodeSupply(i, self.supplies[i])
 
-    def run_optimizer(self):
+    def run_optimizer(self, log_history):
         """
         Given a graph, this function runs the Mincostflow algorithm
-        :return:
+        :log_history: Boolean to control when to log the history of the
+                      assignment to station. This is helpful during the
+                      second phase of optimization, which is actually
+                      the final assignment, and hence needs to be logged.
+
+        :return: None
         """
 
         # Find the minimum cost flow between node 0 and node 10.
@@ -214,7 +235,8 @@ class WorkerStationProblem:
                             self.workers[worker_id - 1].rem_skill[station_id - 1]
                         units_produced = self.workers[worker_id - 1].rem_skill[station_id - 1]
 
-                        self.workers[worker_id - 1].assign_history.append(station_id - 1)
+                        if log_history:
+                            self.workers[worker_id - 1].assign_history.append(station_id)
 
                         logging.info('Worker {:d} assigned to Station {:d}, capable of {:d} units; Deficit = {:d}'.format(
                             worker_id,
@@ -245,17 +267,18 @@ class WorkerStationProblem:
                 then max number of units produced by the current station is equal
                 to its previous station.
                 """
-                if self.actual_units[i] > self.theoretical_units_produced[i - 1]:
+                if self.actual_units[i] > self.actual_units[i - 1]:
                     self.actual_units[i] = min(self.theoretical_units_produced[i],
                                                self.actual_units[i - 1] + self.WIP_inventory[i])
 
                 if compute_WIP:
                     self.WIP_inventory[i] += self.actual_units[i - 1] - self.actual_units[i]
             logging.info('Station {:d} practically produces {:d} units'.
-                  format(i + 1, self.actual_units[i]))
+                         format(i + 1, self.actual_units[i]))
 
         if compute_WIP:
             logging.info("WIP Inventory {}".format(self.WIP_inventory))
+            self.final_num_units.append(self.actual_units[-1])
 
     def Solve(self):
         """
@@ -274,13 +297,19 @@ class WorkerStationProblem:
                                                       "less than num_stations"
 
         self.current_time_step = 0
+        # Display the skills for each worker
+        logging.info("Initial Skill Levels:--------------------------------------------------")
+        for worker_id in range(self.num_workers):
+            logging.info("worker ID: {} Skill Levels: {}".format(worker_id + 1,
+                                                                 self.workers[worker_id].rem_skill))
 
-        for _ in range(self.num_time_steps):
+        for _ in trange(self.num_time_steps, desc="Time Step"):
             start = time()
             self._build_graph(cost_fn= self._compute_lost_sales_cost)
             build_time = time() - start
             logging.info("================== Solving for Time Step {} ==========================" .format(
                         self.current_time_step + 1))
+            logging.info("Graph Info:-----------------------------------------------------------")
             logging.info("Worker IDs : {}".format(self.worker_id))
             logging.info("Station IDs : {}".format(self.station_id))
             logging.info("Start Nodes: {}".format(self.start_nodes))
@@ -296,7 +325,7 @@ class WorkerStationProblem:
 
             start = time()
 
-            self.run_optimizer()
+            self.run_optimizer(log_history=False) # DO NOT log history
 
             solve_time = time() - start
             logging.info("---------------------------------------------------------------------")
@@ -312,25 +341,26 @@ class WorkerStationProblem:
             build_time += time() - start
 
             start = time()
-            self.run_optimizer()
+            self.run_optimizer(log_history=True) # Log final assignment
             solve_time += time() - start
             self.experiment_time += build_time + solve_time
 
             logging.info("---------------------------------------------------------------------")
 
             self._compute_units_produced(compute_WIP=True)
+            self.inventory_log = np.append(self.inventory_log, [self.WIP_inventory], axis=0)
             logging.info("---------------------------------------------------------------------")
             logging.info('Graph building time: {:.5f}s'.format(build_time))
             logging.info('Solving time: {:.5f}s'.format(solve_time))
             logging.info('Total time: {:.5f}s'.format(build_time + solve_time))
             logging.info("======================================================================")
-            logging.info('\n\n')
-
+            logging.info('\n')
 
 
             self.current_time_step += 1
 
             # Update the skills for each worker
+            logging.info("Updated Skill Levels:--------------------------------------------------")
             for worker_id in range(self.num_workers):
                 for station_id in range(self.num_stations):
                     skill_level = self.update_skills(worker_id, station_id)
@@ -342,6 +372,13 @@ class WorkerStationProblem:
             self.solver = pywrapgraph.SimpleMinCostFlow()
         logging.info("======================================================================")
         logging.info('Total experiment time: {:.5f}s'.format(self.experiment_time))
+
+        # Save output to CSV
+        for i, worker in enumerate(self.workers):
+            self.pd_file = self.pd_file.append(pd.Series(worker.assign_history[1:],
+                                                         index=self.pd_file.columns,
+                                                         name='Worker {}'.format(i+1)))
+        self.pd_file.to_csv(self.SAVE_PATH + "Assignment Result.csv")
 
     def add_worker(self, lr: float,
                    fr: float,
@@ -359,7 +396,11 @@ class WorkerStationProblem:
         assert len(initial_skill) == self.num_stations, "len(initial_skill)" \
                                                         "must be equal to the number of" \
                                                         "stations"
-        self.workers.append(Worker(id, lr, fr, initial_skill, station_id-1))
+        """
+        NOTE: station_id for assign_history is only for display purposes.
+        Therefore, we use 1-based indexing.
+        """
+        self.workers.append(Worker(id, lr, fr, initial_skill, station_id))
 
     def add_station(self, S_max: float,
                     S_min: float,
@@ -392,12 +433,14 @@ class WorkerStationProblem:
             S = self._skill_deterioration(worker_id, station_id)
         return S
 
-    def _skill_improvement(self, worker_id, station_id):
+    def _skill_improvement(self, worker_id, station_id) -> int:
         """
         The skill improvement formula for a given worker_id k and
         station_id j at time step l is given as follows -
 
             S_jkl = S_max_j - (S_max_j - S_rem_jk)e^(beta_k*l)
+
+        :return: Improved skill level (int)
         """
         l = 1 if self.current_time_step > 0 else 0
 
@@ -410,12 +453,14 @@ class WorkerStationProblem:
         S = int(abs(S))
         return min(S, self.stations[station_id].S_UB)
 
-    def _skill_deterioration(self, worker_id, station_id):
+    def _skill_deterioration(self, worker_id, station_id) -> int:
         """
         The skill deterioration formula for a given worker_id k and
         station_id j at time step l is given as follows -
 
             S_rem_jkl = S_min_j + (S_jk - S_min_j)e^(gamma_k*l)
+
+        :return: Deteriorated skill level (int)
         """
         l = 1 if self.current_time_step > 0 else 0
 
@@ -428,7 +473,7 @@ class WorkerStationProblem:
         S = int(abs(S))
         return max(S, self.stations[station_id].S_LB)
 
-    def _compute_lost_sales_cost(self, worker_id, station_id):
+    def _compute_lost_sales_cost(self, worker_id, station_id) -> int:
         S = self.workers[worker_id].rem_skill[station_id]
 
         # if worker_id > 0:
@@ -445,6 +490,68 @@ class WorkerStationProblem:
         S = self.workers[worker_id].rem_skill[station_id]
 
         return int(abs((S - self.mean_units)))
+
+    def get_plots(self, is_show  = False):
+        """
+        Function to display all required plots.
+        :return:
+        """
+
+        """
+        Plot 1: Worker Station Assignment
+        """
+        plt.figure()
+        for i, worker in enumerate(self.workers):
+            plt.plot(worker.assign_history, lw=2, ls='-', marker='o',
+                     alpha=0.7, ms=10, label="Worker {}".format(i+1))
+        plt.xticks(np.arange(1, self.num_time_steps + 1, 1))
+        plt.yticks(np.arange(1, self.num_workers + 1, 1))
+        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5),
+                   fontsize=15)
+        plt.xlabel('Time Steps', fontsize=15)
+        plt.ylabel('Station ID', fontsize=15)
+        plt.title('Worker Station Assignment', fontsize=15)
+        plt.tight_layout()
+        plt.savefig(self.SAVE_PATH + "Worker Station Assignment.pdf", dpi=300)
+
+        """
+        Plot 2: Demand Vs Output
+        """
+        plt.figure()
+        inds = np.arange(1, self.num_time_steps + 1)
+        width = 0.35
+        plt.bar(inds - width/2, self.demands,
+                width, label="Demands")
+        plt.bar(inds + width / 2, self.final_num_units,
+                width, label="Output")
+
+        plt.xticks(np.arange(1, self.num_time_steps + 1, 1))
+        plt.legend(fontsize=15)
+        plt.xlabel('Time Steps', fontsize=15)
+        plt.ylabel('Units', fontsize=15)
+        plt.title('Demand Vs Output', fontsize=15)
+        plt.tight_layout()
+        plt.savefig(self.SAVE_PATH + "Demand Vs Output.pdf", dpi=300)
+
+        """
+        Plot 3: Inventory Vs Time
+        """
+        plt.figure()
+        for i in range(self.num_stations):
+            plt.plot(np.arange(1, self.num_time_steps + 1, 1), self.inventory_log[:, i], lw=2, ls='-', marker='o',
+                     alpha=0.7, ms=10, label="Station {}".format(i + 1))
+        plt.xticks(np.arange(1, self.num_time_steps + 1, 1))
+        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5),
+                   fontsize=15)
+        plt.xlabel('Time Steps', fontsize=15)
+        plt.ylabel('Inventory Units', fontsize=15)
+        plt.title('Inventory Vs Time', fontsize=15)
+        plt.tight_layout()
+        plt.savefig(self.SAVE_PATH + "Inventory Vs Time.pdf", dpi=300)
+
+        if is_show:
+            plt.show()
+
 
     # def _compute_lost_sales(self): #Z_1
     #     """
@@ -492,27 +599,27 @@ def create_experiment(cfg):
     :return: None
     """
     setup_cfg = cfg['worker_station_problem']
-    w = WorkerStationProblem(num_workers= setup_cfg['Number_of_Workers'],
-                             num_stations= setup_cfg['Number_of_Stations'],
-                             num_time_steps= setup_cfg['Number_of_Timesteps'],
-                             demands= setup_cfg['Demands'],
+    w = WorkerStationProblem(num_workers=setup_cfg['Number_of_Workers'],
+                             num_stations=setup_cfg['Number_of_Stations'],
+                             num_time_steps=setup_cfg['Number_of_Timesteps'],
+                             demands=setup_cfg['Demands'],
                              experiment_name=setup_cfg['Experiment_Name'])
 
     for i in range(setup_cfg['Number_of_Workers']):
         worker_cfg = cfg['Worker_{}_info'.format(i+1)]
-        w.add_worker(lr = worker_cfg['Learning_rate'],
-                     fr = worker_cfg['Forgetting_rate'],
-                     initial_skill= worker_cfg['Initial_skill'],
-                     station_id= worker_cfg['Initial_station'])
+        w.add_worker(lr=worker_cfg['Learning_rate'],
+                     fr=worker_cfg['Forgetting_rate'],
+                     initial_skill=worker_cfg['Initial_skill'],
+                     station_id=worker_cfg['Initial_station'])
 
     for i in range(setup_cfg['Number_of_Stations']):
         station_cfg = cfg['Station_{}_info'.format(i+1)]
-        w.add_station(S_max= station_cfg['Max_skill_level'],
-                      S_min= station_cfg['Min_skill_level'],
-                      delta= station_cfg['Delta'],
-                      eps= station_cfg['Epsilon'])
+        w.add_station(S_max=station_cfg['Max_skill_level'],
+                      S_min=station_cfg['Min_skill_level'],
+                      delta=station_cfg['Delta'],
+                      eps=station_cfg['Epsilon'])
     w.Solve()
-
+    w.get_plots()
 
 if __name__ == '__main__':
     # w = WorkerStationProblem(num_workers=4, num_stations=4, num_time_steps=3, demands=[12, 12, 5])
