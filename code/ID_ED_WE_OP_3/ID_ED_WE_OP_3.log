@@ -1,0 +1,2037 @@
+Experiment Date: 10/09/2019 17:42:01 
+
+Demands: [2, 3, 4, 6, 7, 8, 11, 14, 10, 10, 9, 7, 10, 10, 10, 13, 12, 13, 14, 15, 16, 18, 20, 22, 23, 27, 30, 33, 32, 32, 31, 30, 31, 30, 33, 33, 31, 35, 36, 35, 36, 36, 37, 39, 40, 40, 42, 42, 43, 45, 45, 46]
+Initial Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [10, 11, 7]
+worker ID: 2 Skill Levels: [10, 6, 8]
+worker ID: 3 Skill Levels: [7, 8, 12]
+================== Solving for Time Step 1 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 8, 9, 5, 8, 4, 6, 5, 6, 10, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 14
+Worker 1 assigned to Station 3, capable of 7 units; Deficit = 5
+Worker 2 assigned to Station 2, capable of 6 units; Deficit = 4
+Worker 3 assigned to Station 1, capable of 7 units; Deficit = 5
+---------------------------------------------------------------------
+Station 1 practically produces 7 units
+Station 2 practically produces 6 units
+Station 3 practically produces 6 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2557
+Worker 1 assigned to Station 2, capable of 11 units; Deficit = 851
+Worker 2 assigned to Station 1, capable of 10 units; Deficit = 853
+Worker 3 assigned to Station 3, capable of 12 units; Deficit = 853
+---------------------------------------------------------------------
+Station 1 practically produces 10 units
+Station 2 practically produces 10 units
+Station 3 practically produces 10 units
+WIP Inventory [0, 0, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00044s
+Solving time: 0.00028s
+Total time: 0.00072s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [9, 18, 6]
+worker ID: 2 Skill Levels: [17, 5, 7]
+worker ID: 3 Skill Levels: [6, 7, 20]
+================== Solving for Time Step 2 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 6, 15, 3, 14, 2, 4, 3, 4, 17, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 8
+Worker 1 assigned to Station 3, capable of 6 units; Deficit = 3
+Worker 2 assigned to Station 2, capable of 5 units; Deficit = 2
+Worker 3 assigned to Station 1, capable of 6 units; Deficit = 3
+---------------------------------------------------------------------
+Station 1 practically produces 6 units
+Station 2 practically produces 5 units
+Station 3 practically produces 5 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2698
+Worker 1 assigned to Station 1, capable of 9 units; Deficit = 858
+Worker 2 assigned to Station 3, capable of 7 units; Deficit = 920
+Worker 3 assigned to Station 2, capable of 7 units; Deficit = 920
+---------------------------------------------------------------------
+Station 1 practically produces 9 units
+Station 2 practically produces 7 units
+Station 3 practically produces 7 units
+WIP Inventory [0, 2, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00039s
+Solving time: 0.00023s
+Total time: 0.00063s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [17, 16, 5]
+worker ID: 2 Skill Levels: [15, 4, 17]
+worker ID: 3 Skill Levels: [5, 15, 17]
+================== Solving for Time Step 3 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 13, 12, 1, 11, 0, 13, 1, 11, 13, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 2
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 1
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 0
+Worker 3 assigned to Station 1, capable of 5 units; Deficit = 1
+---------------------------------------------------------------------
+Station 1 practically produces 5 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2548
+Worker 1 assigned to Station 2, capable of 16 units; Deficit = 848
+Worker 2 assigned to Station 1, capable of 15 units; Deficit = 828
+Worker 3 assigned to Station 3, capable of 17 units; Deficit = 872
+---------------------------------------------------------------------
+Station 1 practically produces 15 units
+Station 2 practically produces 16 units
+Station 3 practically produces 16 units
+WIP Inventory [0, 1, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00039s
+Solving time: 0.00024s
+Total time: 0.00063s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [16, 21, 5]
+worker ID: 2 Skill Levels: [21, 4, 15]
+worker ID: 3 Skill Levels: [4, 13, 23]
+================== Solving for Time Step 4 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 10, 15, 1, 15, 2, 9, 2, 7, 17, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 5
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 1
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 2
+Worker 3 assigned to Station 1, capable of 4 units; Deficit = 2
+---------------------------------------------------------------------
+Station 1 practically produces 4 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2402
+Worker 1 assigned to Station 1, capable of 16 units; Deficit = 818
+Worker 2 assigned to Station 3, capable of 15 units; Deficit = 801
+Worker 3 assigned to Station 2, capable of 13 units; Deficit = 783
+---------------------------------------------------------------------
+Station 1 practically produces 16 units
+Station 2 practically produces 13 units
+Station 3 practically produces 13 units
+WIP Inventory [0, 4, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00038s
+Solving time: 0.00025s
+Total time: 0.00064s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [21, 19, 5]
+worker ID: 2 Skill Levels: [19, 4, 22]
+worker ID: 3 Skill Levels: [3, 19, 20]
+================== Solving for Time Step 5 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 14, 12, 2, 12, 3, 15, 4, 12, 13, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 9
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 2
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 3
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 4
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2569
+Worker 1 assigned to Station 2, capable of 19 units; Deficit = 849
+Worker 2 assigned to Station 1, capable of 19 units; Deficit = 849
+Worker 3 assigned to Station 3, capable of 20 units; Deficit = 871
+---------------------------------------------------------------------
+Station 1 practically produces 19 units
+Station 2 practically produces 19 units
+Station 3 practically produces 19 units
+WIP Inventory [0, 4, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00041s
+Solving time: 0.00024s
+Total time: 0.00065s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [19, 23, 5]
+worker ID: 2 Skill Levels: [23, 4, 20]
+worker ID: 3 Skill Levels: [3, 17, 25]
+================== Solving for Time Step 6 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 11, 15, 3, 15, 4, 12, 5, 9, 17, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 12
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 3
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 4
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 5
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2433
+Worker 1 assigned to Station 1, capable of 19 units; Deficit = 816
+Worker 2 assigned to Station 3, capable of 20 units; Deficit = 835
+Worker 3 assigned to Station 2, capable of 17 units; Deficit = 782
+---------------------------------------------------------------------
+Station 1 practically produces 19 units
+Station 2 practically produces 17 units
+Station 3 practically produces 17 units
+WIP Inventory [0, 6, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00038s
+Solving time: 0.00023s
+Total time: 0.00061s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [23, 21, 5]
+worker ID: 2 Skill Levels: [21, 4, 25]
+worker ID: 3 Skill Levels: [3, 22, 22]
+================== Solving for Time Step 7 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 12, 10, 6, 10, 7, 14, 8, 11, 11, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 21
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 6
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 7
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 8
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2504
+Worker 1 assigned to Station 2, capable of 21 units; Deficit = 828
+Worker 2 assigned to Station 1, capable of 21 units; Deficit = 828
+Worker 3 assigned to Station 3, capable of 22 units; Deficit = 848
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 21 units
+Station 3 practically produces 21 units
+WIP Inventory [0, 6, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00037s
+Solving time: 0.00024s
+Total time: 0.00061s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [21, 25, 5]
+worker ID: 2 Skill Levels: [24, 4, 22]
+worker ID: 3 Skill Levels: [3, 19, 26]
+================== Solving for Time Step 8 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 7, 11, 9, 10, 10, 8, 11, 5, 12, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 20
+Worker 1 assigned to Station 1, capable of 21 units; Deficit = 7
+Worker 2 assigned to Station 3, capable of 22 units; Deficit = 8
+Worker 3 assigned to Station 2, capable of 19 units; Deficit = 5
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 19 units
+Station 3 practically produces 19 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2362
+Worker 1 assigned to Station 1, capable of 21 units; Deficit = 791
+Worker 2 assigned to Station 3, capable of 22 units; Deficit = 808
+Worker 3 assigned to Station 2, capable of 19 units; Deficit = 763
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 19 units
+Station 3 practically produces 19 units
+WIP Inventory [0, 8, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00037s
+Solving time: 0.00025s
+Total time: 0.00062s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [25, 23, 5]
+worker ID: 2 Skill Levels: [21, 4, 27]
+worker ID: 3 Skill Levels: [3, 23, 23]
+================== Solving for Time Step 9 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 15, 13, 5, 11, 6, 17, 7, 13, 13, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 5
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 6
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2386
+Worker 1 assigned to Station 2, capable of 23 units; Deficit = 806
+Worker 2 assigned to Station 1, capable of 21 units; Deficit = 774
+Worker 3 assigned to Station 3, capable of 23 units; Deficit = 806
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 23 units
+Station 3 practically produces 23 units
+WIP Inventory [0, 6, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00041s
+Solving time: 0.00025s
+Total time: 0.00067s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [23, 26, 5]
+worker ID: 2 Skill Levels: [24, 4, 24]
+worker ID: 3 Skill Levels: [3, 20, 27]
+================== Solving for Time Step 10 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 13, 16, 5, 14, 6, 14, 7, 10, 17, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 5
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 6
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2283
+Worker 1 assigned to Station 1, capable of 23 units; Deficit = 767
+Worker 2 assigned to Station 3, capable of 24 units; Deficit = 786
+Worker 3 assigned to Station 2, capable of 20 units; Deficit = 730
+---------------------------------------------------------------------
+Station 1 practically produces 23 units
+Station 2 practically produces 20 units
+Station 3 practically produces 20 units
+WIP Inventory [0, 9, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00038s
+Solving time: 0.00024s
+Total time: 0.00061s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [26, 24, 5]
+worker ID: 2 Skill Levels: [21, 4, 28]
+worker ID: 3 Skill Levels: [3, 24, 24]
+================== Solving for Time Step 11 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 17, 15, 4, 12, 5, 19, 6, 15, 15, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 15
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 4
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 5
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 6
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2187
+Worker 1 assigned to Station 2, capable of 24 units; Deficit = 741
+Worker 2 assigned to Station 1, capable of 21 units; Deficit = 705
+Worker 3 assigned to Station 3, capable of 24 units; Deficit = 741
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 24 units
+Station 3 practically produces 24 units
+WIP Inventory [0, 6, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00036s
+Solving time: 0.00023s
+Total time: 0.00060s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [24, 26, 5]
+worker ID: 2 Skill Levels: [24, 4, 25]
+worker ID: 3 Skill Levels: [3, 21, 28]
+================== Solving for Time Step 12 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 17, 19, 2, 17, 3, 18, 4, 14, 21, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 9
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 2
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 3
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 4
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 2056
+Worker 1 assigned to Station 1, capable of 24 units; Deficit = 690
+Worker 2 assigned to Station 3, capable of 25 units; Deficit = 703
+Worker 3 assigned to Station 2, capable of 21 units; Deficit = 663
+---------------------------------------------------------------------
+Station 1 practically produces 24 units
+Station 2 practically produces 21 units
+Station 3 practically produces 21 units
+WIP Inventory [0, 9, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00039s
+Solving time: 0.00027s
+Total time: 0.00066s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [26, 24, 5]
+worker ID: 2 Skill Levels: [21, 4, 28]
+worker ID: 3 Skill Levels: [3, 24, 24]
+================== Solving for Time Step 13 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 16, 14, 5, 11, 6, 18, 7, 14, 14, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 5
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 6
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1926
+Worker 1 assigned to Station 2, capable of 24 units; Deficit = 648
+Worker 2 assigned to Station 1, capable of 21 units; Deficit = 630
+Worker 3 assigned to Station 3, capable of 24 units; Deficit = 648
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 24 units
+Station 3 practically produces 24 units
+WIP Inventory [0, 6, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00036s
+Solving time: 0.00025s
+Total time: 0.00061s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [24, 26, 5]
+worker ID: 2 Skill Levels: [24, 4, 25]
+worker ID: 3 Skill Levels: [3, 21, 28]
+================== Solving for Time Step 14 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 14, 16, 5, 14, 6, 15, 7, 11, 18, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 5
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 6
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1816
+Worker 1 assigned to Station 1, capable of 24 units; Deficit = 606
+Worker 2 assigned to Station 3, capable of 25 units; Deficit = 613
+Worker 3 assigned to Station 2, capable of 21 units; Deficit = 597
+---------------------------------------------------------------------
+Station 1 practically produces 24 units
+Station 2 practically produces 21 units
+Station 3 practically produces 21 units
+WIP Inventory [0, 9, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00035s
+Solving time: 0.00024s
+Total time: 0.00059s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [26, 24, 5]
+worker ID: 2 Skill Levels: [21, 4, 28]
+worker ID: 3 Skill Levels: [3, 24, 24]
+================== Solving for Time Step 15 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 16, 14, 5, 11, 6, 18, 7, 14, 14, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 5
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 6
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1692
+Worker 1 assigned to Station 2, capable of 24 units; Deficit = 564
+Worker 2 assigned to Station 1, capable of 21 units; Deficit = 564
+Worker 3 assigned to Station 3, capable of 24 units; Deficit = 564
+---------------------------------------------------------------------
+Station 1 practically produces 21 units
+Station 2 practically produces 24 units
+Station 3 practically produces 24 units
+WIP Inventory [0, 6, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00035s
+Solving time: 0.00024s
+Total time: 0.00059s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [24, 26, 5]
+worker ID: 2 Skill Levels: [24, 4, 25]
+worker ID: 3 Skill Levels: [3, 21, 28]
+================== Solving for Time Step 16 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 11, 13, 8, 11, 9, 12, 10, 8, 15, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 27
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 8
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 9
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 10
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1603
+Worker 1 assigned to Station 1, capable of 24 units; Deficit = 531
+Worker 2 assigned to Station 3, capable of 25 units; Deficit = 532
+Worker 3 assigned to Station 2, capable of 21 units; Deficit = 540
+---------------------------------------------------------------------
+Station 1 practically produces 24 units
+Station 2 practically produces 21 units
+Station 3 practically produces 21 units
+WIP Inventory [0, 9, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00036s
+Solving time: 0.00024s
+Total time: 0.00060s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [26, 24, 5]
+worker ID: 2 Skill Levels: [21, 4, 28]
+worker ID: 3 Skill Levels: [3, 24, 24]
+================== Solving for Time Step 17 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 14, 12, 7, 9, 8, 16, 9, 12, 12, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 24
+Worker 1 assigned to Station 3, capable of 5 units; Deficit = 7
+Worker 2 assigned to Station 2, capable of 4 units; Deficit = 8
+Worker 3 assigned to Station 1, capable of 3 units; Deficit = 9
+---------------------------------------------------------------------
+Station 1 practically produces 3 units
+Station 2 practically produces 4 units
+Station 3 practically produces 4 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1477
+Worker 1 assigned to Station 1, capable of 26 units; Deficit = 491
+Worker 2 assigned to Station 3, capable of 28 units; Deficit = 491
+Worker 3 assigned to Station 2, capable of 24 units; Deficit = 495
+---------------------------------------------------------------------
+Station 1 practically produces 26 units
+Station 2 practically produces 24 units
+Station 3 practically produces 24 units
+WIP Inventory [0, 11, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00034s
+Solving time: 0.00024s
+Total time: 0.00058s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [28, 22, 5]
+worker ID: 2 Skill Levels: [19, 4, 30]
+worker ID: 3 Skill Levels: [3, 26, 21]
+================== Solving for Time Step 18 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 15, 9, 8, 6, 9, 17, 10, 13, 8, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 23
+Worker 1 assigned to Station 2, capable of 22 units; Deficit = 9
+Worker 2 assigned to Station 1, capable of 19 units; Deficit = 6
+Worker 3 assigned to Station 3, capable of 21 units; Deficit = 8
+---------------------------------------------------------------------
+Station 1 practically produces 19 units
+Station 2 practically produces 22 units
+Station 3 practically produces 21 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1291
+Worker 1 assigned to Station 1, capable of 28 units; Deficit = 429
+Worker 2 assigned to Station 3, capable of 30 units; Deficit = 427
+Worker 3 assigned to Station 2, capable of 26 units; Deficit = 435
+---------------------------------------------------------------------
+Station 1 practically produces 28 units
+Station 2 practically produces 26 units
+Station 3 practically produces 26 units
+WIP Inventory [0, 13, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00034s
+Solving time: 0.00024s
+Total time: 0.00058s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 20, 5]
+worker ID: 2 Skill Levels: [17, 4, 32]
+worker ID: 3 Skill Levels: [3, 27, 18]
+================== Solving for Time Step 19 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 15, 6, 9, 3, 10, 18, 11, 13, 4, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 13
+Worker 1 assigned to Station 2, capable of 20 units; Deficit = 6
+Worker 2 assigned to Station 1, capable of 17 units; Deficit = 3
+Worker 3 assigned to Station 3, capable of 18 units; Deficit = 4
+---------------------------------------------------------------------
+Station 1 practically produces 17 units
+Station 2 practically produces 20 units
+Station 3 practically produces 18 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1190
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 386
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 410
+Worker 3 assigned to Station 2, capable of 27 units; Deficit = 394
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 27 units
+Station 3 practically produces 27 units
+WIP Inventory [0, 15, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00034s
+Solving time: 0.00023s
+Total time: 0.00057s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 18, 5]
+worker ID: 2 Skill Levels: [15, 4, 32]
+worker ID: 3 Skill Levels: [3, 28, 16]
+================== Solving for Time Step 20 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 14, 3, 10, 0, 11, 17, 12, 13, 1, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 4
+Worker 1 assigned to Station 2, capable of 18 units; Deficit = 3
+Worker 2 assigned to Station 1, capable of 15 units; Deficit = 0
+Worker 3 assigned to Station 3, capable of 16 units; Deficit = 1
+---------------------------------------------------------------------
+Station 1 practically produces 15 units
+Station 2 practically produces 18 units
+Station 3 practically produces 16 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 1060
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 346
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 361
+Worker 3 assigned to Station 2, capable of 28 units; Deficit = 353
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 28 units
+Station 3 practically produces 28 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00036s
+Solving time: 0.00023s
+Total time: 0.00060s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 16, 5]
+worker ID: 2 Skill Levels: [13, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 14]
+================== Solving for Time Step 21 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 13, 0, 11, 3, 12, 16, 13, 13, 2, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 5
+Worker 1 assigned to Station 2, capable of 16 units; Deficit = 0
+Worker 2 assigned to Station 1, capable of 13 units; Deficit = 3
+Worker 3 assigned to Station 3, capable of 14 units; Deficit = 2
+---------------------------------------------------------------------
+Station 1 practically produces 13 units
+Station 2 practically produces 16 units
+Station 3 practically produces 14 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 933
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 309
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 315
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 309
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00033s
+Solving time: 0.00023s
+Total time: 0.00057s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 15, 5]
+worker ID: 2 Skill Levels: [12, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 12]
+================== Solving for Time Step 22 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 11, 3, 13, 6, 14, 14, 15, 11, 6, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 15
+Worker 1 assigned to Station 2, capable of 15 units; Deficit = 3
+Worker 2 assigned to Station 1, capable of 12 units; Deficit = 6
+Worker 3 assigned to Station 3, capable of 12 units; Deficit = 6
+---------------------------------------------------------------------
+Station 1 practically produces 12 units
+Station 2 practically produces 15 units
+Station 3 practically produces 12 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 828
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 277
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 274
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 277
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00033s
+Solving time: 0.00023s
+Total time: 0.00056s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 14, 5]
+worker ID: 2 Skill Levels: [11, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 10]
+================== Solving for Time Step 23 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 9, 6, 15, 9, 16, 12, 17, 9, 10, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 25
+Worker 1 assigned to Station 2, capable of 14 units; Deficit = 6
+Worker 2 assigned to Station 1, capable of 11 units; Deficit = 9
+Worker 3 assigned to Station 3, capable of 10 units; Deficit = 10
+---------------------------------------------------------------------
+Station 1 practically produces 11 units
+Station 2 practically produces 14 units
+Station 3 practically produces 10 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 741
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 251
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 239
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 251
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00032s
+Solving time: 0.00026s
+Total time: 0.00059s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 13, 5]
+worker ID: 2 Skill Levels: [10, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 9]
+================== Solving for Time Step 24 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 7, 9, 17, 12, 18, 10, 19, 7, 13, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 24
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 7
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 10
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 618
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 213
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 192
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 213
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00032s
+Solving time: 0.00023s
+Total time: 0.00055s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 12, 5]
+worker ID: 2 Skill Levels: [9, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 8]
+================== Solving for Time Step 25 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 6, 11, 18, 14, 19, 9, 20, 6, 15, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 21
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 6
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 9
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 6
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 555
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 195
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 165
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 195
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00032s
+Solving time: 0.00023s
+Total time: 0.00055s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 11, 5]
+worker ID: 2 Skill Levels: [8, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 7]
+================== Solving for Time Step 26 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 2, 16, 22, 19, 23, 5, 24, 2, 20, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 9
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 2
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 5
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 2
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 528
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 189
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 150
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 189
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00031s
+Solving time: 0.00023s
+Total time: 0.00055s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 10, 5]
+worker ID: 2 Skill Levels: [7, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 6]
+================== Solving for Time Step 27 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 1, 20, 25, 23, 26, 2, 27, 1, 24, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 4
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 1
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 2
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 1
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 520
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 188
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 144
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 188
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00031s
+Solving time: 0.00024s
+Total time: 0.00055s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 9, 5]
+worker ID: 2 Skill Levels: [6, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 5]
+================== Solving for Time Step 28 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 4, 24, 28, 27, 29, 1, 30, 4, 28, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 9
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 4
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 1
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 4
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 511
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 184
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 143
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 184
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00032s
+Solving time: 0.00030s
+Total time: 0.00062s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 8, 5]
+worker ID: 2 Skill Levels: [5, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 4]
+================== Solving for Time Step 29 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 3, 24, 27, 27, 28, 0, 29, 3, 28, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 6
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 3
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 0
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 3
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 505
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 181
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 143
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 181
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00032s
+Solving time: 0.00023s
+Total time: 0.00056s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 7, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 30 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 3, 25, 27, 28, 28, 0, 29, 3, 29, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 6
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 3
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 0
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 3
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 499
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 178
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 143
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 178
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00030s
+Solving time: 0.00026s
+Total time: 0.00056s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 6, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 31 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 2, 25, 26, 27, 27, 1, 28, 2, 28, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 5
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 2
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 1
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 2
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 492
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 176
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 140
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 176
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00030s
+Solving time: 0.00023s
+Total time: 0.00053s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 32 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 1, 25, 25, 26, 26, 2, 27, 1, 27, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 4
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 1
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 2
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 1
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 484
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 175
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 134
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 175
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00030s
+Solving time: 0.00023s
+Total time: 0.00053s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 33 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 2, 26, 26, 27, 27, 1, 28, 2, 28, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 5
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 2
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 1
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 2
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 477
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 173
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 131
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 173
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00032s
+Solving time: 0.00023s
+Total time: 0.00056s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 34 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 1, 25, 25, 26, 26, 2, 27, 1, 27, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 4
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 1
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 2
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 1
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 469
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 172
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 125
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 172
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00029s
+Solving time: 0.00023s
+Total time: 0.00052s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 35 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 4, 28, 28, 29, 29, 1, 30, 4, 30, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 9
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 4
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 1
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 4
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 460
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 168
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 124
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 168
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00029s
+Solving time: 0.00023s
+Total time: 0.00052s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 36 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 4, 28, 28, 29, 29, 1, 30, 4, 30, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 9
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 4
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 1
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 4
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 451
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 164
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 123
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 164
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00035s
+Solving time: 0.00031s
+Total time: 0.00066s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 37 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 2, 26, 26, 27, 27, 1, 28, 2, 28, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 5
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 2
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 1
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 2
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 444
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 162
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 120
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 162
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00029s
+Solving time: 0.00025s
+Total time: 0.00054s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 38 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 6, 30, 30, 31, 31, 3, 32, 6, 32, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 15
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 6
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 3
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 6
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 429
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 156
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 117
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 156
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00028s
+Solving time: 0.00023s
+Total time: 0.00052s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 39 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 7, 31, 31, 32, 32, 4, 33, 7, 33, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 7
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 4
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 411
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 149
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 113
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 149
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00028s
+Solving time: 0.00025s
+Total time: 0.00053s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 40 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 6, 30, 30, 31, 31, 3, 32, 6, 32, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 15
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 6
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 3
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 6
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 396
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 143
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 110
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 143
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00027s
+Solving time: 0.00023s
+Total time: 0.00051s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 41 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 7, 31, 31, 32, 32, 4, 33, 7, 33, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 7
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 4
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 378
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 136
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 106
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 136
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00027s
+Solving time: 0.00023s
+Total time: 0.00050s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 42 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 7, 31, 31, 32, 32, 4, 33, 7, 33, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 18
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 7
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 4
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 7
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 360
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 129
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 102
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 129
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00026s
+Solving time: 0.00023s
+Total time: 0.00049s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 43 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 8, 32, 32, 33, 33, 5, 34, 8, 34, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 21
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 8
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 5
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 8
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 339
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 121
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 97
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 121
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00027s
+Solving time: 0.00023s
+Total time: 0.00049s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 44 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 10, 34, 34, 35, 35, 7, 36, 10, 36, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 27
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 10
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 7
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 10
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 312
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 111
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 90
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 111
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00026s
+Solving time: 0.00023s
+Total time: 0.00049s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 45 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 11, 35, 35, 36, 36, 8, 37, 11, 37, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 30
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 11
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 8
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 11
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 282
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 100
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 82
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 100
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00026s
+Solving time: 0.00023s
+Total time: 0.00049s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 46 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 11, 35, 35, 36, 36, 8, 37, 11, 37, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 30
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 11
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 8
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 11
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 252
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 89
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 74
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 89
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00029s
+Solving time: 0.00026s
+Total time: 0.00054s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 47 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 13, 37, 37, 38, 38, 10, 39, 13, 39, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 36
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 13
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 10
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 13
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 216
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 76
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 64
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 76
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00025s
+Solving time: 0.00023s
+Total time: 0.00048s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 48 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 13, 37, 37, 38, 38, 10, 39, 13, 39, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 36
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 13
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 10
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 13
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 180
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 63
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 54
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 63
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00025s
+Solving time: 0.00023s
+Total time: 0.00048s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 49 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 14, 38, 38, 39, 39, 11, 40, 14, 40, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 39
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 14
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 11
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 14
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 141
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 49
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 43
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 49
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00025s
+Solving time: 0.00023s
+Total time: 0.00047s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 50 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 16, 40, 40, 41, 41, 13, 42, 16, 42, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 45
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 16
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 13
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 16
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 96
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 33
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 30
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 33
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00026s
+Solving time: 0.00023s
+Total time: 0.00049s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 51 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 16, 40, 40, 41, 41, 13, 42, 16, 42, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 45
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 16
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 13
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 16
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 51
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 17
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 17
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 17
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00024s
+Solving time: 0.00025s
+Total time: 0.00048s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+================== Solving for Time Step 52 ==========================
+Graph Info:-----------------------------------------------------------
+Worker IDs : [1, 2, 3]
+Station IDs : [4, 5, 6]
+Start Nodes: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6]
+End Nodes: [1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 7, 7, 7]
+Capacities: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Costs: [0, 0, 0, 17, 41, 41, 42, 42, 14, 43, 17, 43, 0, 0, 0]
+Supplies: [3, 0, 0, 0, 0, 0, 0, -3]
+------------------- Minimizing Lost Sales ----------------------------
+Total Minimum cost = 48
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 17
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 14
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 17
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+------------------- Minimizing Standard Deviation --------------------
+Total Minimum cost = 3
+Worker 1 assigned to Station 1, capable of 29 units; Deficit = 0
+Worker 2 assigned to Station 3, capable of 32 units; Deficit = 3
+Worker 3 assigned to Station 2, capable of 29 units; Deficit = 0
+---------------------------------------------------------------------
+Station 1 practically produces 29 units
+Station 2 practically produces 29 units
+Station 3 practically produces 29 units
+WIP Inventory [0, 16, 0]
+---------------------------------------------------------------------
+Graph building time: 0.00023s
+Solving time: 0.00026s
+Total time: 0.00049s
+======================================================================
+
+
+Updated Skill Levels:--------------------------------------------------
+worker ID: 1 Skill Levels: [29, 5, 5]
+worker ID: 2 Skill Levels: [4, 4, 32]
+worker ID: 3 Skill Levels: [3, 29, 3]
+======================================================================
+Total experiment time: 0.02931s

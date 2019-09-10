@@ -66,8 +66,8 @@ class Station:
         self.S_min = S_min
 
         # Practically achievable skill levels
-        self.S_UB = S_max - delta
-        self.S_LB = S_min + eps
+        self.S_UB = int(S_max - delta)
+        self.S_LB = int(S_min + eps)
 
         self.delta = delta
         self.eps = eps
@@ -101,6 +101,8 @@ class WorkerStationProblem:
         self.station_id = list(range(self.num_workers + 1, self.num_stations + self.num_stations + 1))
         self.sink_id = self.num_stations + self.num_workers + 1
         self.WIP_inventory = [0]*self.num_stations
+        self.output_inventory = [0]*self.num_time_steps
+
         self.inventory_log = np.empty((0, 3))
 
         self.mean_units = 0
@@ -279,6 +281,15 @@ class WorkerStationProblem:
         if compute_WIP:
             logging.info("WIP Inventory {}".format(self.WIP_inventory))
             self.final_num_units.append(self.actual_units[-1])
+            self.output_inventory[self.current_time_step] = self.final_num_units[-1] - \
+                                                            self.demands[self.current_time_step]
+
+
+            if self.current_time_step > 0:
+                self.output_inventory[self.current_time_step] += \
+                    self.output_inventory[self.current_time_step-1]
+
+
 
     def Solve(self):
         """
@@ -427,7 +438,7 @@ class WorkerStationProblem:
         :param worker_id: Worker ID
         :param station_id: Station ID
         """
-        if self.workers[worker_id].assign_history[-1] == station_id:
+        if self.workers[worker_id].assign_history[-1] == station_id + 1:
             S = self._skill_improvement(worker_id, station_id)
         else:
             S = self._skill_deterioration(worker_id, station_id)
@@ -450,7 +461,8 @@ class WorkerStationProblem:
         exp_term = np.exp(beta*l)
 
         S =  (1 - exp_term)*S_max + S_rem*exp_term #S_max -  (S_max - S_rem)*exp_term
-        S = int(abs(S))
+        S = int(round(abs(S)))
+
         return min(S, self.stations[station_id].S_UB)
 
     def _skill_deterioration(self, worker_id, station_id) -> int:
@@ -470,7 +482,7 @@ class WorkerStationProblem:
         exp_term = np.exp(gamma*l)
 
         S = (1 - exp_term)*S_min + S_curr*exp_term #S_min +  (S_curr - S_min)*exp_term
-        S = int(abs(S))
+        S = int(round(abs(S)))
         return max(S, self.stations[station_id].S_LB)
 
     def _compute_lost_sales_cost(self, worker_id, station_id) -> int:
@@ -481,15 +493,26 @@ class WorkerStationProblem:
         # else:
         #     th = 0
 
-        return max(0, self.demands[self.current_time_step] - S) + \
-               max(0, S - self.demands[self.current_time_step])
+        current_loss =  max(0, self.demands[self.current_time_step] - S) + \
+                        max(0, S - self.demands[self.current_time_step])
+
+        return current_loss
 
 
     def _compute_std_cost(self, worker_id, station_id):
         self.mean_units = sum(self.actual_units)/len(self.actual_units)
         S = self.workers[worker_id].rem_skill[station_id]
 
-        return int(abs((S - self.mean_units)))
+        future_loss = 0
+        demand_erraticity = abs(np.diff(self.demands)).sum() # Total variation Distance
+        future_loss_weight = 3 #int(round(np.exp(-0.00405058 *demand_erraticity + 1.54692256)))
+        # print(future_loss_weight, demand_erraticity)
+
+        for i in range(self.current_time_step + 1, self.num_time_steps):
+            future_loss += max(0, self.demands[i] - S) + \
+                           future_loss_weight*max(0, S - self.demands[i])
+
+        return int(round(abs((S - self.mean_units)))) + future_loss
 
     def get_plots(self, is_show  = False):
         """
@@ -548,6 +571,45 @@ class WorkerStationProblem:
         plt.title('WIP Inventory Vs Time', fontsize=15)
         plt.tight_layout()
         plt.savefig(self.SAVE_PATH + "WIP Inventory Vs Time.pdf", dpi=300)
+
+        """
+        Plot 4: Output Inventory Vs Time
+        """
+        plt.figure()
+        inds = np.arange(1, self.num_time_steps + 1)
+        width = 0.35
+        plt.bar(inds, self.output_inventory,
+                width, label="Output Inventory")
+
+        plt.xticks(np.arange(1, self.num_time_steps + 1, 1))
+        plt.legend(fontsize=15)
+        plt.xlabel('Time Steps', fontsize=15)
+        plt.ylabel('Units', fontsize=15)
+        plt.title('Output Inventory Vs Time', fontsize=15)
+        plt.tight_layout()
+        plt.savefig(self.SAVE_PATH + "Output Inventory Vs Time.pdf", dpi=300)
+
+        """
+        Plot 5: Production Results Vs Time
+        """
+        plt.figure()
+        inds = np.arange(self.num_time_steps)
+        width = 0.35
+        plt.bar(inds - width/2, self.final_num_units,
+                width, label="Output")
+        plt.bar(inds+width/2, self.output_inventory,
+                width, label="Output Inventory")
+
+        inds = np.arange(1, self.num_time_steps + 1)
+        plt.plot(inds, self.demands, 'r-',lw=2, ms=5, marker='o', label='Demands')
+
+        plt.xticks(np.arange(1, self.num_time_steps + 1, 1))
+        plt.legend(fontsize=15)
+        plt.xlabel('Time Steps', fontsize=15)
+        plt.ylabel('Units', fontsize=15)
+        plt.title('Production Results Vs Time', fontsize=15)
+        plt.tight_layout()
+        plt.savefig(self.SAVE_PATH + "Production Results Vs Time.pdf", dpi=300)
 
         if is_show:
             plt.show()
@@ -619,7 +681,7 @@ def create_experiment(cfg):
                       delta=station_cfg['Delta'],
                       eps=station_cfg['Epsilon'])
     w.Solve()
-    w.get_plots()
+    w.get_plots(is_show=False)
 
 if __name__ == '__main__':
     # w = WorkerStationProblem(num_workers=4, num_stations=4, num_time_steps=3, demands=[12, 12, 5])
